@@ -270,6 +270,27 @@ margin-left: 1em;
         font-size: 1em;
        margin-bottom: 1em;
     }
+
+    p.hScores{
+                display:block;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -400%);
+    }
+    .clear-score{
+
+        display:block;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+
+    }
   }
    
 
