@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <meta https-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Code Quiz</title>
+    <link rel="stylesheet" href="./Assets/style.css">
+</head>
+<body>
+
+<header class="title">
+    <a href="" class="topInfo">View Highscores</a>
+    <p class="topInfo" id="timer">Time:-</p>
+    <h1>Coding Quiz Challenge</h1>
+    
+</header>
+
+<main>
+
+    <div class="message">
+        <p>Try to answer the following code-related questions within the time 
+        limit. Keep in mind that incorrect answers will penalize your score/time </br>by ten seconds!
+        </p>
+    </div>
+
+    <div class="button" id="start-button">
+        <button id="startQuiz">Start Quiz</button><br><br>
+        
+    </div>
+
+    <div  id="SQuiz-options">
+        <button class="options" id="option-1"></button><br><br>
+        <button class="options" id="option-2"></button><br><br>
+        <button class="options" id="option-3"></button><br><br>
+        <button class="options" id="option-4"></button><br>
+    </div>
+
+    <div id="answer">
+        <hr id="horizontal-rule">
+        <p id="wrong">Wrong!</p>
+        <p id="correct">Correct!</p>
+    </div>
+    <div class="final-score">All done!</div>
+    <p id="final-score"></p>
+    <div class="score-input">
+        <form action="">
+            <label for="initials" id="initials">Enter initials:</label>
+            <input type="text" id="nameinitials"> <input type="submit" id="submit" value="Submit">
+        </form>
+
+    </div>
+        <p class="hScores"></p>
+
+    <div class="clear-score">
+        <button id="goBack">Go Back</button>
+        <button id="clearScores">Clear Highscores</button>
+    </div>
+</main>
+
+<script src="./Assets/script.js"></script>
+
+    </body>
+</html>
