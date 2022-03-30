@@ -34,7 +34,7 @@ your screen will look like this.
 
 ![](https://github.com/AlejandroBahSan/CodeQuiz/blob/master/Assets/images/ClearHighScores.jpg)
 
-If you decide to leave the stored score, and play again. Just click on the Go Back button, once you are in the initial screen and if you decide to check your last
+If you decide to store your score, and play again. Just click on the Go Back button, once you are in the initial screen and if you decide to check your last
 stored score again, you will only need to click on the hyperlink which is in the upper right corner. 
 
 ![](https://github.com/AlejandroBahSan/CodeQuiz/blob/master/Assets/images/ViewHighScores.jpg)
