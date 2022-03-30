@@ -27,7 +27,7 @@ your initials so the program can storage your final score, once you write down y
 
 In the following screen you will be able to check your last stored score. 
 
-![](https://github.com/AlejandroBahSan/CodeQuiz/blob/master/Assets/images/InitialsSubmit.jpg)
+![](https://github.com/AlejandroBahSan/CodeQuiz/blob/master/Assets/images/HighScores.jpg)
 
 In this same screen you have two buttons, one for go back to the initial screen and the other to clear the stored score. Once you click the clear highscores button,
 your screen will look like this.
