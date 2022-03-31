@@ -79,7 +79,7 @@ function correctAnswer() {
     answerW.style.display= "none";
 
      // ===Transition timer (Next Question) === //
-     let timeLeft = 5;
+     let timeLeft = 1;
      transTimer  = setInterval(function(){
          timeLeft--;
          if(timeLeft === 0){
@@ -136,7 +136,6 @@ function WrongAnswer() {
             timerCount--;
             timerElement.textContent = "Time:" + timerCount ;
                 if(timerCount <= 0 ){
-                    
                     clearInterval(timer);
                     submitScore();
                 
@@ -158,7 +157,10 @@ function question1Logic(){
     option2.innerHTML = question1[1];
     option3.innerHTML = question1[2];
     option4.innerHTML = question1[3];
-
+    option1. disabled = false;
+    option2. disabled = false;
+    option3. disabled = false;
+    option4. disabled = false;
     optBlock.style.display = null;
     
     option3.onclick = function() {
@@ -305,7 +307,7 @@ function question5Logic(){
      
     option1.onclick = function() {
            WrongAnswer();
-     
+           option1. disabled = true;
          // ===Transition timer Submit Form === //
          let timeLeftS = 1;
          let submitTimer;
@@ -320,10 +322,11 @@ function question5Logic(){
      
     
         
-    };   
+    };
+
     option2.onclick = function() {
         WrongAnswer();
-
+        option2. disabled = true;
         let timeLeftS = 1;
         let submitTimer;
         submitTimer  = setInterval(function(){
@@ -335,9 +338,10 @@ function question5Logic(){
             }
         }, 1000);
     };
+    
     option3.onclick = function() {
         WrongAnswer();
-
+        option3. disabled = true;
         let timeLeftS = 1;
         let submitTimer;
         submitTimer  = setInterval(function(){
@@ -356,6 +360,9 @@ function question5Logic(){
 // === Submit score === //
 
 function submitScore(){
+    if (timerCount <= 0){
+        timerCount = 0;
+    }
 
     optBlock.style.display = "none";
     questionText.style.display= "none";
@@ -399,6 +406,8 @@ highScores.innerHTML = window.localStorage.getItem('1.');
     gobackBtn.style.display = "block";
     clearscoreBtn.style.display = "block"
     highScores.style.display = "block";
+
+    
 
 
 }
