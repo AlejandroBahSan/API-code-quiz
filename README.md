@@ -1,7 +1,7 @@
 # CodeQuiz
 Code Quiz based on the knowledge from Week-04.
 
-
+Please visit the deployed project at: https://alejandrobahsan.github.io/CodeQuiz/
 Functionality.
 
 Initial menu, you will find the start quiz button, on the right top corner you will find the hyperlink that will take you to the last HighScore stored.
