@@ -36,7 +36,7 @@ let nameInit = document.querySelector("#nameinitials");
 nameInit.style.display = "none";
 let submitEl = document.querySelector("#submit");
 submit.style.display = "none";
-let highScores = document.querySelector(".hScores");    
+let highScores = document.querySelector(".hScores");
 highScores.style.display = "none";
 
 // === Go back button and Clear local-Storage. button === // 
@@ -57,9 +57,9 @@ let transTimer;
 
 // === Quiz List. === //
 
-let quizList  = ["1/5: Commonly used data type DO NOT <br/>include:", "2/5: The condition in an if / else statement is<br/> a enclosed within ____.", 
-"3/5: Arrays in JavaScript can be used to store<br/> _____.", "4/5: String values must be enclosed within _____.<br/> When being assigned to variables ",
-"5/5: A very useful tool used during development<br/> and debugging for printing content to the<br/> debugger is"];
+let quizList = ["1/5: Commonly used data type DO NOT <br/>include:", "2/5: The condition in an if / else statement is<br/> a enclosed within ____.",
+    "3/5: Arrays in JavaScript can be used to store<br/> _____.", "4/5: String values must be enclosed within _____.<br/> When being assigned to variables ",
+    "5/5: A very useful tool used during development<br/> and debugging for printing content to the<br/> debugger is"];
 
 // === Answer options per button. === //
 
@@ -76,21 +76,21 @@ let question5 = ["1. JavaScript", "2. terminal/bash", "3. for loops", "4. consol
 function correctAnswer() {
     hr.style.display = "block";
     answerC.style.display = "block";
-    answerW.style.display= "none";
+    answerW.style.display = "none";
 
-     // ===Transition timer (Next Question) === //
-     let timeLeft = 1;
-     transTimer  = setInterval(function(){
-         timeLeft--;
-         if(timeLeft === 0){
-             hr.style.display = "none";
-             answerC.style.display = "none";
-             answerW.style.display= "none";
-             clearInterval(transTimer);
-           
-         }
-     }, 1000);
-  }
+    // ===Transition timer (Next Question) === //
+    let timeLeft = 1;
+    transTimer = setInterval(function () {
+        timeLeft--;
+        if (timeLeft === 0) {
+            hr.style.display = "none";
+            answerC.style.display = "none";
+            answerW.style.display = "none";
+            clearInterval(transTimer);
+
+        }
+    }, 1000);
+}
 
 
 // === Displays the message of wrong answer for 1 second. === //
@@ -98,58 +98,58 @@ function correctAnswer() {
 function WrongAnswer() {
     hr.style.display = "block";
     answerW.style.display = "block";
-    answerC.style.display= "none";
+    answerC.style.display = "none";
     timerCount -= 10;
-    
-      // ===Transition timer (Next Question) === //
-      let timeLeft = 1;
-      transTimer  = setInterval(function(){
+
+    // ===Transition timer (Next Question) === //
+    let timeLeft = 1;
+    transTimer = setInterval(function () {
         timeLeft--;
-          if(timeLeft === 0){
-              hr.style.display = "none";
-              answerC.style.display = "none";
-              answerW.style.display= "none";
-              clearInterval(transTimer);
-             
-          }
-      }, 1000);
+        if (timeLeft === 0) {
+            hr.style.display = "none";
+            answerC.style.display = "none";
+            answerW.style.display = "none";
+            clearInterval(transTimer);
+
+        }
+    }, 1000);
 
 }
 
 
-     startButton.addEventListener("click", startGame);
+startButton.addEventListener("click", startGame);
 
 
-    function startGame() {
-        startTimer();
+function startGame() {
+    startTimer();
 
-        message.style.display = "none";
-        startBtn.style.display = "none";
-        timerCount = 60;
-    }
+    message.style.display = "none";
+    startBtn.style.display = "none";
+    timerCount = 60;
+}
 
-    // === Timer === //
-    function startTimer() {
-            // Sets timer //
-            timer = setInterval(function() {
-            //Time Decrement.  
-            timerCount--;
-            timerElement.textContent = "Time:" + timerCount ;
-                if(timerCount <= 0 ){
-                    clearInterval(timer);
-                    submitScore();
-                
-                }
-        
-        }, 1000);
-    
-            question1Logic();
-    }
+// === Timer === //
+function startTimer() {
+    // Sets timer //
+    timer = setInterval(function () {
+        //Time Decrement.  
+        timerCount--;
+        timerElement.textContent = "Time:" + timerCount;
+        if (timerCount <= 0) {
+            clearInterval(timer);
+            submitScore();
+
+        }
+
+    }, 1000);
+
+    question1Logic();
+}
 
 
-  // === Question 1 === //
+// === Question 1 === //
 
-function question1Logic(){
+function question1Logic() {
 
 
     questionText.innerHTML = quizList[0];
@@ -157,39 +157,39 @@ function question1Logic(){
     option2.innerHTML = question1[1];
     option3.innerHTML = question1[2];
     option4.innerHTML = question1[3];
-    option1. disabled = false;
-    option2. disabled = false;
-    option3. disabled = false;
-    option4. disabled = false;
+    option1.disabled = false;
+    option2.disabled = false;
+    option3.disabled = false;
+    option4.disabled = false;
     optBlock.style.display = null;
-    
-    option3.onclick = function() {
+
+    option3.onclick = function () {
         correctAnswer();
         question2Logic();
     };
-    
-    option1.onclick = function() {
-        WrongAnswer();
-        question2Logic();
-    };   
-    option2.onclick = function() {
+
+    option1.onclick = function () {
         WrongAnswer();
         question2Logic();
     };
-    option4.onclick = function() {
+    option2.onclick = function () {
         WrongAnswer();
         question2Logic();
     };
-        
+    option4.onclick = function () {
+        WrongAnswer();
+        question2Logic();
+    };
+
 }
 
 
 
 
-  // === Question 2 === //
+// === Question 2 === //
 
-function question2Logic(){
-           
+function question2Logic() {
+
     questionText.innerHTML = quizList[1];
     option1.innerHTML = question2[0];
     option2.innerHTML = question2[1];
@@ -198,31 +198,31 @@ function question2Logic(){
 
     optBlock.style.display = null;
 
-    option2.onclick = function() {
+    option2.onclick = function () {
         correctAnswer();
         question3Logic();
     };
-     
-    option1.onclick = function() {
-        WrongAnswer();
-        question3Logic();
-    };   
-    option3.onclick = function() {
+
+    option1.onclick = function () {
         WrongAnswer();
         question3Logic();
     };
-    option4.onclick = function() {
+    option3.onclick = function () {
         WrongAnswer();
         question3Logic();
     };
-    
-   
+    option4.onclick = function () {
+        WrongAnswer();
+        question3Logic();
+    };
+
+
 }
-  // === Question 3 === //
+// === Question 3 === //
 
 
-function question3Logic(){
-        
+function question3Logic() {
+
     questionText.innerHTML = quizList[2];
     option1.innerHTML = question3[0];
     option2.innerHTML = question3[1];
@@ -231,34 +231,34 @@ function question3Logic(){
 
     optBlock.style.display = null;
 
-    option4.onclick = function() {
+    option4.onclick = function () {
         correctAnswer();
         question4Logic();
     };
-        
-    option1.onclick = function() {
-        WrongAnswer();
-        question4Logic();
-    };   
-    option2.onclick = function() {
+
+    option1.onclick = function () {
         WrongAnswer();
         question4Logic();
     };
-    option3.onclick = function() {
+    option2.onclick = function () {
         WrongAnswer();
         question4Logic();
     };
-        
-    
-   
+    option3.onclick = function () {
+        WrongAnswer();
+        question4Logic();
+    };
+
+
+
 }
 
 
- // === Question 4 === //
+// === Question 4 === //
 
-function question4Logic(){
-    
-        
+function question4Logic() {
+
+
     questionText.innerHTML = quizList[3];
     option1.innerHTML = question4[0];
     option2.innerHTML = question4[1];
@@ -266,32 +266,32 @@ function question4Logic(){
     option4.innerHTML = question4[3];
 
     optBlock.style.display = null;
-  
-    option3.onclick = function() {
+
+    option3.onclick = function () {
         correctAnswer();
         question5Logic();
     };
-     
-    option1.onclick = function() {
-        WrongAnswer();
-        question5Logic();
-    };   
-    option2.onclick = function() {
+
+    option1.onclick = function () {
         WrongAnswer();
         question5Logic();
     };
-    option4.onclick = function() {
+    option2.onclick = function () {
         WrongAnswer();
         question5Logic();
     };
-   
+    option4.onclick = function () {
+        WrongAnswer();
+        question5Logic();
+    };
+
 }
 
 
 // === Question 5 === //
 
-function question5Logic(){
-        
+function question5Logic() {
+
     questionText.innerHTML = quizList[4];
     option1.innerHTML = question5[0];
     option2.innerHTML = question5[1];
@@ -300,72 +300,72 @@ function question5Logic(){
 
     optBlock.style.display = null;
 
-    option4.onclick = function() {
+    option4.onclick = function () {
         correctAnswer();
         submitScore();
     };
-     
-    option1.onclick = function() {
-           WrongAnswer();
-           option1. disabled = true;
-         // ===Transition timer Submit Form === //
-         let timeLeftS = 1;
-         let submitTimer;
-             submitTimer  = setInterval(function(){
-                timeLeftS--;
-                    if(timeLeftS === 0){
-                    submitScore();
-                        clearInterval(submitTimer);
-               
-             }
-         }, 1000);
-     
-    
-        
+
+    option1.onclick = function () {
+        WrongAnswer();
+        option1.disabled = true;
+        // ===Transition timer Submit Form === //
+        let timeLeftS = 1;
+        let submitTimer;
+        submitTimer = setInterval(function () {
+            timeLeftS--;
+            if (timeLeftS === 0) {
+                submitScore();
+                clearInterval(submitTimer);
+
+            }
+        }, 1000);
+
+
+
     };
 
-    option2.onclick = function() {
+    option2.onclick = function () {
         WrongAnswer();
-        option2. disabled = true;
+        option2.disabled = true;
         let timeLeftS = 1;
         let submitTimer;
-        submitTimer  = setInterval(function(){
-           timeLeftS--;
-            if(timeLeftS === 0){
-               submitScore();
+        submitTimer = setInterval(function () {
+            timeLeftS--;
+            if (timeLeftS === 0) {
+                submitScore();
                 clearInterval(submitTimer);
-              
+
             }
         }, 1000);
     };
-    
-    option3.onclick = function() {
+
+    option3.onclick = function () {
         WrongAnswer();
-        option3. disabled = true;
+        option3.disabled = true;
         let timeLeftS = 1;
         let submitTimer;
-        submitTimer  = setInterval(function(){
-           timeLeftS--;
-            if(timeLeftS === 0){
-               submitScore();
+        submitTimer = setInterval(function () {
+            timeLeftS--;
+            if (timeLeftS === 0) {
+                submitScore();
                 clearInterval(submitTimer);
-              
+
             }
         }, 1000);
     };
-   
+
 }
 
 
 // === Submit score === //
 
-function submitScore(){
-    if (timerCount <= 0){
+function submitScore() {
+    if (timerCount <= 0) {
         timerCount = 0;
     }
 
     optBlock.style.display = "none";
-    questionText.style.display= "none";
+    questionText.style.display = "none";
     fScore.textContent = "Your final score is: " + timerCount + ".";
     finalS.style.display = "block";
     label.style.display = "block";
@@ -377,8 +377,8 @@ function submitScore(){
 
 // === Saves the the initials in Local Storage === //
 
-submitEl.onclick = function(event) {
-    localStorage.setItem("1."," 1. " + nameInit.value + " - " +timerCount);
+submitEl.onclick = function (event) {
+    localStorage.setItem("1.", " 1. " + nameInit.value + " - " + timerCount);
     highScore();
     event.preventDefault();
 }
@@ -386,20 +386,20 @@ submitEl.onclick = function(event) {
 
 
 
-function highScore(){
+function highScore() {
 
-finalS.innerHTML = "Highscores";
+    finalS.innerHTML = "Highscores";
 
-highScores.innerHTML = window.localStorage.getItem('1.');
+    highScores.innerHTML = window.localStorage.getItem('1.');
 
     label.style.display = "none";
     nameInit.style.display = "none";
     submitEl.style.display = "none";
     fScore.style.display = "none";
     optBlock.style.display = "none";
-    questionText.style.display= "none";
-    startBtn.style.display= "none";
-    message.style.display= "none";
+    questionText.style.display = "none";
+    startBtn.style.display = "none";
+    message.style.display = "none";
 
     highScores.style.display = "block";
     finalS.style.display = "block";
@@ -407,31 +407,31 @@ highScores.innerHTML = window.localStorage.getItem('1.');
     clearscoreBtn.style.display = "block"
     highScores.style.display = "block";
 
-    
+
 
 
 }
 
 // === Clear Local Storage === //
-clearscoreBtn.onclick = function() {
+clearscoreBtn.onclick = function () {
     window.localStorage.clear();
     highScore();
 };
 
 // === Shows the information (Highscore) saved in Local Storage === //
-viewHighscore.onclick = function(event) {
+viewHighscore.onclick = function (event) {
     highScore();
     event.preventDefault();
 };
 
-    // === Initial position === //
+// === Initial position === //
 
-    gobackBtn.onclick = function() {
+gobackBtn.onclick = function () {
 
-        init();
-    };
- 
-function init(){
+    init();
+};
+
+function init() {
 
     label.style.display = "none";
     nameInit.style.display = "none";
@@ -446,10 +446,10 @@ function init(){
     optBlock.style.display = "none";
     highScores.style.display = "none";
 
-    questionText.style.display= "block";
+    questionText.style.display = "block";
     questionText.textContent = "Coding Quiz Challenge";
-    startBtn.style.display= "block";
-    message.style.display= "block";
+    startBtn.style.display = "block";
+    message.style.display = "block";
 
 
 }
