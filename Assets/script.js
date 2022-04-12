@@ -4,7 +4,6 @@ let questionText = document.querySelector("h1");
 let startButton = document.querySelector("#startQuiz");
 let startBtn = document.querySelector("#start-button");
 
-
 let fScore = document.querySelector("#final-score");
 let message = document.querySelector(".message");
 
@@ -32,19 +31,19 @@ let finalS = document.querySelector(".final-score");
 finalS.style.display = "none";
 let label = document.querySelector("label");
 label.style.display = "none";
+let initialsForm = document.querySelector("#initials-form");
 let nameInit = document.querySelector("#nameinitials");
 nameInit.style.display = "none";
 let submitEl = document.querySelector("#submit");
 submit.style.display = "none";
-let highScores = document.querySelector(".hScores");
-highScores.style.display = "none";
+let highScores = document.querySelector("#hScores");
+
 
 // === Go back button and Clear local-Storage. button === // 
 let gobackBtn = document.querySelector("#goBack");
 gobackBtn.style.display = "none";
 let clearscoreBtn = document.querySelector("#clearScores");
 clearscoreBtn.style.display = "none";
-
 
 // === Timer variables. === // 
 let timerCount;
@@ -68,7 +67,6 @@ let question2 = ["1. quotes", "2. curly brakets", "3. parentheses", "4. square b
 let question3 = ["1. numbers and strings", "2. other arrays", "3. booleans", "4. all of the above"];
 let question4 = ["1. commas", "2. curly brakets", "3. quotes", "4. parentheses"];
 let question5 = ["1. JavaScript", "2. terminal/bash", "3. for loops", "4. console log"];
-
 
 
 // === Displays the message of correct answer for 1 second. === //
@@ -113,9 +111,7 @@ function WrongAnswer() {
 
         }
     }, 1000);
-
 }
-
 
 startButton.addEventListener("click", startGame);
 
@@ -145,7 +141,6 @@ function startTimer() {
 
     question1Logic();
 }
-
 
 // === Question 1 === //
 
@@ -180,11 +175,7 @@ function question1Logic() {
         WrongAnswer();
         question2Logic();
     };
-
 }
-
-
-
 
 // === Question 2 === //
 
@@ -215,8 +206,6 @@ function question2Logic() {
         WrongAnswer();
         question3Logic();
     };
-
-
 }
 // === Question 3 === //
 
@@ -248,11 +237,7 @@ function question3Logic() {
         WrongAnswer();
         question4Logic();
     };
-
-
-
 }
-
 
 // === Question 4 === //
 
@@ -284,9 +269,7 @@ function question4Logic() {
         WrongAnswer();
         question5Logic();
     };
-
 }
-
 
 // === Question 5 === //
 
@@ -319,9 +302,6 @@ function question5Logic() {
 
             }
         }, 1000);
-
-
-
     };
 
     option2.onclick = function () {
@@ -353,11 +333,10 @@ function question5Logic() {
             }
         }, 1000);
     };
-
 }
 
 
-// === Submit score === //
+// === Screen to submit scores === //
 
 function submitScore() {
     if (timerCount <= 0) {
@@ -375,22 +354,44 @@ function submitScore() {
 
 }
 
-// === Saves the the initials in Local Storage === //
+
+// === Saves the the initials and scores in Local Storage === //
+var scoresArray = [];
 
 submitEl.onclick = function (event) {
-    localStorage.setItem("1.", " 1. " + nameInit.value + " - " + timerCount);
-    highScore();
+
+    var localstorageArray = localStorage.getItem('scores');
+    
+        if (localstorageArray === null) {
+            scoresArray;
+        }
+        else {
+            scoresArray = JSON.parse(localstorageArray);
+        }
+
+    var myObj = {
+        initials: nameInit.value,
+        score: timerCount
+    };
+
+    scoresArray.push(myObj);
+
+    var myObjString = JSON.stringify(scoresArray);
+    window.localStorage.setItem("scores", myObjString);
+
     event.preventDefault();
+    highScore();
 }
 
-
-
-
+// === Prints in a p element the scores for each entry in the input field === //
+var i = 0;
 function highScore() {
+    
+    var scoresArrayString = localStorage.getItem("scores");
+    var localstorageObj = JSON.parse(scoresArrayString);
+    console.log(localstorageObj);
 
-    finalS.innerHTML = "Highscores";
-
-    highScores.innerHTML = window.localStorage.getItem('1.');
+    finalS.textContent = "Highscores";
 
     label.style.display = "none";
     nameInit.style.display = "none";
@@ -405,29 +406,44 @@ function highScore() {
     finalS.style.display = "block";
     gobackBtn.style.display = "block";
     clearscoreBtn.style.display = "block"
-    highScores.style.display = "block";
 
 
+        if (localstorageObj === null) {
+            return;
+        }
 
+        for (; i < localstorageObj.length; i++) {
+            var eachNewHighScore = document.createElement("p");
+            eachNewHighScore.innerHTML = [i + 1] + ". " + localstorageObj[i].initials + ": " + localstorageObj[i].score;
+            highScores.appendChild(eachNewHighScore);
+        }
 
+    console.log(localstorageObj);
+    console.log(i);
+
+    // === Clears Local Storage and Array === //
+    clearscoreBtn.onclick = function () {
+        scoresArray = [];
+        while (highScores.firstChild) {
+            highScores.removeChild(highScores.firstChild);
+        }
+        localStorage.clear("scores");
+        i = 0;
+        highScore();
+    };
 }
-
-// === Clear Local Storage === //
-clearscoreBtn.onclick = function () {
-    window.localStorage.clear();
-    highScore();
-};
 
 // === Shows the information (Highscore) saved in Local Storage === //
 viewHighscore.onclick = function (event) {
     highScore();
     event.preventDefault();
+
 };
 
-// === Initial position === //
+// === Initial Screen === //
 
 gobackBtn.onclick = function () {
-
+    nameInit.value = "";
     init();
 };
 
@@ -450,7 +466,6 @@ function init() {
     questionText.textContent = "Coding Quiz Challenge";
     startBtn.style.display = "block";
     message.style.display = "block";
-
 
 }
 
