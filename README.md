@@ -23,16 +23,15 @@ wrong answer.
 ![](https://github.com/AlejandroBahSan/CodeQuiz/blob/master/Assets/images/CorrectAnswer.jpg)
 ![](https://github.com/AlejandroBahSan/CodeQuiz/blob/master/Assets/images/WrongAnswer.jpg)
 
-if you get to answer all the questions from the quiz before the time finish, the time remaining will be used for your score, in this formulari you will only need to add
-your initials so the program can storage your final score, once you write down your initial, click on summit.
+if you get to answer all the questions from the quiz before the time finish, the time remaining will be used for your score, in this formulary you will only need to add your initials and the program will storage your final score, once you write down your initial, click on summit.
 
 ![](https://github.com/AlejandroBahSan/CodeQuiz/blob/master/Assets/images/InitialsSubmit.jpg)
 
-In the following screen you will be able to check your last stored score. 
+In the following screen you will be able to check your last stored scores. 
 
 ![](https://github.com/AlejandroBahSan/CodeQuiz/blob/master/Assets/images/HighScores.jpg)
 
-In this same screen you have two buttons, one for go back to the initial screen and the other to clear the stored score. Once you click the clear highscores button,
+In this same screen you have two buttons, one for go back to the initial screen and the other to clear the stored scores. Once you click the clear highscores button,
 your screen will look like this.
 
 ![](https://github.com/AlejandroBahSan/CodeQuiz/blob/master/Assets/images/ClearHighScores.jpg)
