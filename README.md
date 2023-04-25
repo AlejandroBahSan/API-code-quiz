@@ -1,5 +1,4 @@
-# CodeQuiz
-Code Quiz based on the knowledge from Week-04.
+# API code quiz
 
 Please visit the deployed project at: https://alejandrobahsan.github.io/CodeQuiz/
 
