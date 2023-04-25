@@ -40,7 +40,7 @@ stored score again, you will only need to click on the hyperlink which is in the
 
 ![](https://github.com/AlejandroBahSan/CodeQuiz/blob/master/Assets/images/ViewHighScores.jpg)
 
-And that is it, well... i hope you enjoy answering this small but challenging quiz.
+And that is it! I hope you enjoy testing and answering this small quiz.
 
 
 
