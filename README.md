@@ -1,4 +1,4 @@
-# API code quiz
+# Code quiz
 
 Please visit the deployed project at: https://alejandrobahsan.github.io/API-code-quiz/
 
