@@ -1,6 +1,6 @@
 # Code quiz
 
-Please visit the deployed project at: https://alejandrobahsan.github.io/API-code-quiz/
+Please visit the deployed project at: [https://alejandrobahsan.github.io/API-code-quiz/](https://alejandrobahsan.github.io/Code-quiz/)
 
 
 
